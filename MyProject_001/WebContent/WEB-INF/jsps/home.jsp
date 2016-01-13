@@ -18,6 +18,8 @@
 	
 	<p> <input type="radio" name="homeUserOption" value="register" /> Register </p>
 	
+	<p> <input type="submit" value="Submit"> </p>
+	
 	</form>
 </body>
 </html>

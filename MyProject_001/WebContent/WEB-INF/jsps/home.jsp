@@ -12,7 +12,7 @@
 	
 	<p> To use the available services, select one of the following options </p>
 	
-	<form action="/homeAction.do" method="post">
+	<form action="${pageContext.request.contextPath}/homeAction.do" method="post">
 	
 	<p> <input type="radio" name="homeUserOption" value="login"/> Login </p>
 	

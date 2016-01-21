@@ -17,9 +17,12 @@
 
 		<div id="navDiv">
 
-			<p>
-				<strong>ABOUT</strong>
-			</p>
+			<br/>
+				<a href="${pageContext.request.contextPath}/" id="homeNav"><strong>HOME</strong></a>
+			
+				<a href="" id="aboutNav"><strong>ABOUT</strong></a>
+				
+				<a href="" id="contactNav"><strong>CONTACT</strong></a>
 
 		</div>
 
@@ -34,11 +37,11 @@
 
 		<div id="formContentDiv">
 
-			<p id="loginFormParama">Please enter your username and password</p>
+			<p id="loginFormParama"><strong>Please enter your username and password</strong></p>
 			<br />
 			<form name='f' action='${pageContext.request.contextPath}/login'
 				method='POST'>
-				<table>
+				<table cellpadding=10%">
 					<tr>
 						<td><p class="formNames">Username:</p></td>
 						<td><p>
@@ -52,8 +55,9 @@
 							</p></td>
 					</tr>
 					<tr>
-						<td colspan='2'><p class="formNames">
-								<input  name="submit" type="submit" value="Login" />
+						<td  colspan='2'><p class="formNames">
+						
+								<input style="margin-left: 50%;" class="buttonClass" name="submit" type="submit" value="Login" />
 							</p></td>
 					</tr>
 					<input type="hidden" name="${_csrf.parameterName}"

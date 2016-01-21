@@ -10,8 +10,7 @@ import org.springframework.stereotype.Component;
 public class User {
 	
 	@NotBlank
-	@Pattern(regexp="^\\w{5,}$")
-	@Size(min=5,max=15)
+	@Pattern(regexp=".*\\@.*\\..*")
 	private String username;
 	
 	@NotBlank

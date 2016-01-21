@@ -25,21 +25,25 @@ public class HomeController {
 		return view;
 
 	}
+	
+	
 
 	@RequestMapping(value = "/homeAction.do", method=RequestMethod.POST)
-	public String homeAction(Model model, String homeUserOption) {
+	public String homeAction(String homeUserOption) {
 
 		if (homeUserOption.equals("login")) {
 
-			return "userLogin";
+			System.out.println("Selected Login");
+			
+			return "redirect:/loginAction.do";
 
 		}
 
 		else if (homeUserOption.equals("register")) {
-
-			model.addAttribute("user", new User());
-
-			return "userRegister";
+			
+			System.out.println("Selected register");
+			
+			return "redirect:/register";
 
 		}
 
@@ -47,8 +51,24 @@ public class HomeController {
 
 	}
 	
-	@RequestMapping(value = "/loginAction.do", method=RequestMethod.POST)
-	public ModelAndView doLogin() {
+	@RequestMapping("/login")
+	public String goLoginPage(){
+		
+		return "userLogin";
+		
+	}
+	
+	@RequestMapping("/register")
+	public String goRegisterPage(Model model){
+	
+		model.addAttribute("user", new User());
+		
+		return "userRegister";
+		
+	}
+	
+	@RequestMapping(value = "/loginAction.do")
+	public ModelAndView doLogin(User user) {
 
 			ModelAndView view = new ModelAndView("userHome");
 
@@ -57,7 +77,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/newUserCreate.do", method=RequestMethod.POST)
-	public String doRegister(Model model, @Valid User user, BindingResult result) {
+	public String doRegister(@Valid User user, BindingResult result) {
 		
 			if(result.hasErrors()){
 		
@@ -67,8 +87,6 @@ public class HomeController {
 					
 					System.out.println(error.getDefaultMessage());
 				}
-				
-				model.addAttribute("user", new User());
 				
 				return "userRegister";
 				
